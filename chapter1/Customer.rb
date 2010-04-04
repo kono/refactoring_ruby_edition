@@ -1,7 +1,11 @@
+require 'Movie'
+require 'Rental'
+
 class Customer
   attr_reader :name
+  attr_accessor :result
   
-  def initiaize(name)
+  def initialize(name)
     @name = name
     @rentals = []
   end
@@ -12,11 +16,11 @@ class Customer
   
   def statement
     total_amount, frequent_renter_points = 0, 0
-    result = "Rental Record for #{@name}\n"
+    @result = "Rental Record for #{@name}\n"
     @rentals.each do |element|
       this_amount = 0
       
-      # Šes‚Ì‹àŠz‚ğŒvZ
+      # å„è¡Œã®é‡‘é¡ã‚’è¨ˆç®—
       case element.movie.price_code
       when Movie::REGULAR
         this_amount += 2
@@ -28,19 +32,19 @@ class Customer
         this_amount += (element.days_rented - 3) * 1.5 if element.days_rented > 3
       end
       
-      # ƒŒƒ“ƒ^ƒ‹ƒ|ƒCƒ“ƒg‚ğ‰ÁZ
+      # ãƒ¬ãƒ³ã‚¿ãƒ«ãƒã‚¤ãƒ³ãƒˆã‚’åŠ ç®—
       frequent_renter_points += 1
-      # Vì2“úŠÔ‚Åƒ{[ƒiƒX“_‚ğ‰ÁZ
-      if element.movie.price_code == Movie.NEW_RELEASE && element.days_rented > 1
+      # æ–°ä½œ2æ—¥é–“ã§ãƒœãƒ¼ãƒŠã‚¹ç‚¹ã‚’åŠ ç®—
+      if element.movie.price_code == Movie::NEW_RELEASE && element.days_rented > 1
         frequent_renter_points += 1
       end
-      # ‚±‚ÌƒŒƒ“ƒ^ƒ‹—¿‹à‚ğ•\¦
-      result += "\t" + element.movie.title + "\t" + this_amount.to_s + "\n"
+      # ã“ã®ãƒ¬ãƒ³ã‚¿ãƒ«æ–™é‡‘ã‚’è¡¨ç¤º
+      @result += "\t" + element.movie.title + "\t" + this_amount.to_s + "\n"
       total_amount += this_amount
     end
-    # ƒtƒbƒ^[s‚ğ’Ç‰Á
-    result += "Amount owed is #{total_amount}\n"
-    result += "You earned #{frequent_renter_points} frequent renter points"
-    result
+    # ãƒ•ãƒƒã‚¿ãƒ¼è¡Œã‚’è¿½åŠ 
+    @result += "Amount owed is #{total_amount}\n"
+    @result += "You earned #{frequent_renter_points} frequent renter points"
+    print @result
   end
 end
