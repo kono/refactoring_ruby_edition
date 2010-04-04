@@ -27,7 +27,7 @@ class TC_fileread < Test::Unit::TestCase
     contents = File.read('simple_data.txt',100)
     assert_equal "simple file", contents
   end
-  def test_read_raises_error_when_file_not_found
+  def tesa_read_raises_error_when_file_not_found
     begin
       File.read('datas.txt')
     rescue
