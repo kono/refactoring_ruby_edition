@@ -6,6 +6,10 @@ class Movie
   attr_reader :title
   attr_accessor :price_code
   
+  def proce_code=(value)
+    @price_code = value
+  end
+  
   def initialize(title, price_code)
     @title, @price_code = title, price_code
   end
@@ -29,3 +33,16 @@ class Movie
     (price_code == NEW_RELEASE && days_rented > 1) ? 2 : 1
   end
 end
+
+class RegularPrice
+  
+end
+
+class NewReleasePrice
+  
+end
+
+class ChildrensPrice
+  
+end
+
