@@ -8,6 +8,11 @@ class Movie
   
   def proce_code=(value)
     @price_code = value
+    @price = case price_code
+    when REGULAR: RegularPrice.new
+    when NEW_RELEASE: NewReleasePrice.new
+    when CHILDRENS: ChildrenPrice.new
+    end
   end
   
   def initialize(title, price_code)
