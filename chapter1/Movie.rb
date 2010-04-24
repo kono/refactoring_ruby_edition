@@ -6,7 +6,7 @@ class Movie
   attr_reader :title
   attr_accessor :price_code
   
-  def proce_code=(value)
+  def price_code=(value)
     @price_code = value
     @price = case price_code
     when REGULAR: RegularPrice.new
