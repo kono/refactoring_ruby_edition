@@ -16,9 +16,9 @@ class TC_Customer < Test::Unit::TestCase
 
   def setup
     @obj = Customer.new("kono")
-    @movie1 = Movie.new("Star Wars",Movie::REGULAR)
-    @movie2 = Movie.new("District 9", Movie::NEW_RELEASE)
-    @movie3 = Movie.new("Ponyo",Movie::CHILDRENS)
+    @movie1 = Movie.new("Star Wars",RegularPrice.new)
+    @movie2 = Movie.new("District 9", NewReleasePrice.new)
+    @movie3 = Movie.new("Ponyo",ChildrensPrice.new)
   end
   
   must "test1" do
