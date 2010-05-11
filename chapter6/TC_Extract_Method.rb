@@ -25,12 +25,12 @@ class TC_S6_1_with_local_val < Test::Unit::TestCase
   must "test1" do
     temp=Tempfile::new("foobar")
     $stdout=temp
-    @obj.print_owing
+    @obj.print_owing(10)
     $stdout=STDOUT
     temp.close
     temp.open
     result= temp.read
-    expectation = "*************************\n***** Customer Owes *****\n*************************\nname: kono\namount: 60.0\n"
+    expectation = "*************************\n***** Customer Owes *****\n*************************\nname: kono\namount: 72.0\n"
     temp.close
     assert_equal(result, expectation)
   end
