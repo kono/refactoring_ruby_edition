@@ -25,10 +25,8 @@ class Extract_Method
     @orders.each do |order|
       outstanding += order.amount
     end
-  
-    #詳細を表示(print details)
-    puts "name: #{@name}"
-    puts "amount: #{outstanding}"
+    
+    print_details outstanding
   end
 
 end
@@ -38,4 +36,10 @@ def print_banner
   puts "*************************"
   puts "***** Customer Owes *****"
   puts "*************************"
+end
+
+def print_details(outstanding)
+  #詳細を表示(print details)
+  puts "name: #{@name}"
+  puts "amount: #{outstanding}"
 end
