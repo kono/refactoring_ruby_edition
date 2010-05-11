@@ -20,12 +20,7 @@ class Extract_Method
     outstanding = previous_amount * 1.2
     
     print_banner
-    
-    # 勘定を計算(calculate outstanding)
-    @orders.each do |order|
-      outstanding += order.amount
-    end
-    
+    outstanding = calculate_outstanding(outstanding)
     print_details outstanding
   end
 
@@ -41,5 +36,8 @@ class Extract_Method
     puts "name: #{@name}"
     puts "amount: #{outstanding}"
   end
-
+  
+  def calculate_outstanding(initial_value)
+    @orders.inject(initial_value){|result, order| result + order.amount}
+  end
 end
