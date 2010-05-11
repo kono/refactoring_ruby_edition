@@ -22,21 +22,20 @@ class Extract_Method
     print_details outstanding
   end
 
-end
+  def print_banner
+    #バナーを出力(print banner)
+    puts "*************************"
+    puts "***** Customer Owes *****"
+    puts "*************************"
+  end
 
-def print_banner
-  #バナーを出力(print banner)
-  puts "*************************"
-  puts "***** Customer Owes *****"
-  puts "*************************"
-end
+  def print_details(outstanding)
+    #詳細を表示(print details)
+    puts "name: #{@name}"
+    puts "amount: #{outstanding}"
+  end
 
-def print_details(outstanding)
-  #詳細を表示(print details)
-  puts "name: #{@name}"
-  puts "amount: #{outstanding}"
-end
-
-def calculate_outstanding
-  @orders.inject(0.0){|result, order| result + order.amount }
+  def calculate_outstanding
+    @orders.inject(0.0){|result, order| result + order.amount }
+  end
 end
