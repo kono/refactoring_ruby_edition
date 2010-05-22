@@ -7,8 +7,7 @@ class Replace_Temp_with_Query
     
 
   def price
-    a_discount_factor = discount_factor
-    base_price * a_discount_factor
+    base_price * discount_factor
   end
   
   def base_price
