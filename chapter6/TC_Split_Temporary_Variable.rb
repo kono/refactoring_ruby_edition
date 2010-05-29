@@ -5,6 +5,9 @@ require 'kconv'
 require 'Split_Temporary_Variable'
 
 $KCODE="UTF8"
+class Array
+  attr:finish
+end
 class TC_Split_Temporary_Variable < Test::Unit::TestCase
 
   def assert(status,msg)
