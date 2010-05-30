@@ -25,10 +25,7 @@ def office_proc(employees)
 end
 
 def managerOffices_proc(employees)
-  managerOffices = []
-  employees.each do |e|
-    managerOffices << e.office if e.manager?
-  end
-  return managerOffices
+  managerOffices = employees.select{|e| e.manager?}.
+                                  collect{|e| e.office}
 end
 
