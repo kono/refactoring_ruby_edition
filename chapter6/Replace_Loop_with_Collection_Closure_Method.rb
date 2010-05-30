@@ -31,7 +31,5 @@ def managerOffices_proc(employees)
 end
 
 def salary_total(employees)
-  total = 0
-  employees.each{|e| total += e.salary}
-  total
+  total = employees.inject(0){|sum, e| sum + e.salary}
 end
