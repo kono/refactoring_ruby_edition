@@ -17,10 +17,10 @@ class Replace_Loop_with_Collection_Closure_Method < Test::Unit::TestCase
 
   must "test_test_proc" do
     employees = []
-    employees << Employees.new("Alan", true, "Japan")
-    employees << Employees.new("Barbara", false, "Japan")
-    employees << Employees.new("Charlie", false, "USA")
-    employees << Employees.new("Diana",true, "USA")
+    employees << Employees.new("Alan", true, "Japan", 500)
+    employees << Employees.new("Barbara", false, "Japan", 300)
+    employees << Employees.new("Charlie", false, "USA", 280)
+    employees << Employees.new("Diana",true, "USA", 450)
     
     manager_name = []
     
@@ -41,6 +41,8 @@ class Replace_Loop_with_Collection_Closure_Method < Test::Unit::TestCase
     assert_not_nil(managerOffice_ar.index("Japan"))
     assert_not_nil(managerOffice_ar.index("USA"))
     assert_equal(managerOffice_ar.length, 2)
+    
+    assert_equal(salary_total(employees), 1530)
 
   end
   

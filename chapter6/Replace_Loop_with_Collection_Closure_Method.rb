@@ -1,9 +1,10 @@
 class Employees
-  attr_reader :name, :office
-  def initialize(name, ismanager, office)
+  attr_reader :name, :office, :salary
+  def initialize(name, ismanager, office, salary)
     @name = name
     @manager = ismanager
     @office = office
+    @salary = salary
   end
   
   def manager?
@@ -29,3 +30,8 @@ def managerOffices_proc(employees)
                                   collect{|e| e.office}
 end
 
+def salary_total(employees)
+  total = 0
+  employees.each{|e| total += e.salary}
+  total
+end
