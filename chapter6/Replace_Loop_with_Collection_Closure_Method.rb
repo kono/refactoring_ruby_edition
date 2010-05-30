@@ -21,7 +21,5 @@ def test_proc(employees)
 end
 
 def office_proc(employees)
-  offices = []
-  employees.each{|e| offices << e.office}
-  return offices
+  offices = employees.collect{|e| e.office}
 end
