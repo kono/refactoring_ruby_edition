@@ -36,6 +36,11 @@ class Replace_Loop_with_Collection_Closure_Method < Test::Unit::TestCase
     office_ar= office_proc(employees)
     assert_not_nil(office_ar.index("Japan"))
     assert_not_nil(office_ar.index("USA"))
+    
+    managerOffice_ar = managerOffices_proc(employees)
+    assert_not_nil(managerOffice_ar.index("Japan"))
+    assert_not_nil(managerOffice_ar.index("USA"))
+    assert_equal(managerOffice_ar.length, 2)
 
   end
   
